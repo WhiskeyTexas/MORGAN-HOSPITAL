@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เปลี่ยนชื่อ / เปลี่ยนโรล</title>
+  <link rel="icon" href="/img/โลโก้ LV.png" type="image/x-icon">
+  <link rel="stylesheet" href="การเปลี่ยนชื่อ  ย้ายโรล.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&family=Inter:wght@400;600&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">HOSPITAL LV</div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <nav class="nav-menu" id="nav-menu">
+      <ul>
+        <li><a href="หน้าหลัก LV.html">กลับไปหน้า LV</a></li>
+        <li><a href="หน้าหลัก.html">กลับไปหน้าหลัก</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>การแจ้งเปลี่ยนชื่อ / เปลี่ยนโรล</h1>
+    <p>ㅤ</p>
+    <!-- 1. รายละเอียด -->
+    <div class="section">
+      <h2>รายละเอียดการแจ้งเปลี่ยนชื่อ</h2>
+      <p>ㅤ</p>
+      <p>1.จะต้องไม่มี ใบ หรือ ค่าปรับ โดยเด็ดขาด</p>
+      <p>2.ก่อนเปลี่ยนชื่อจะต้อง เช็คใบและค่าปรับก่อน</p>
+      <p>ㅤ</p>
+      <p class="note">* หมายเหตุ: ถ้าไม่ยอมเช็คใบหรือค่าปรับก่อนถ้าเกมมีใบหรือค่าปรับ จะโดนบังคับล้างในทันทีภายใน 24 ชม.
+        ถ้าไม่ล้างจะมีบทลง *</p>
+      <p class="note">** หมายเหตุ เพิ่มเติม: ถ้าหากเปลี่ยนชื่อแล้วไม่ยอมแจ้งจะถือว่าหนีบทบาททันที **</p>
+    </div>
+
+    <!-- 2. แบบฟอร์ม (mockup) -->
+    <div class="section">
+      <h2>แบบฟอร์ม เปลี่ยนชื่อ</h2>
+      <div class="mockup">
+        <p>ชื่อเก่า :</p>
+        <p>ชื่อใหม่ :</p>
+        <p>วันที่เปลี่ยน :</p>
+        <p> [ แท็กเจ้าหน้าที่ @Whiskey_Texas [ C6 ] ]</p>
+      </div>
+    </div>
+
+    <!-- 3. ตัวอย่างกรอก -->
+    <div class="section">
+      <h2>ตัวอย่าง</h2>
+      <div class="example">
+        <p>ชื่อเก่า : Foremost_Milk </p>
+        <p>ชื่อใหม่ : Foremost_Kub</p>
+        <p>วันที่เปลี่ยน : วันที่เปลี่ยน : 18/05/68</p>
+        <p> [ แท็กเจ้าหน้าที่ @Whiskey_Texas [ C6 ] ]</p>
+      </div>
+    </div>
+
+    <!-- 4. หมายเหตุ -->
+      <div class="section">
+        <p class="note">
+          *สำหลับคนที่ติดใบแต่ยังไม่ล้างแล้วเปลี่ยนชื่อใหม่จะโดนบังคับให้ล้างตามเวลาที่กำหนด ถ้าไม่ล้างจะโดนโทษสูงสุด*
+        </p>
+        <p class="note">
+          **การเปลี่ยนโรล จะต้องทักส่วนตัวหาเจ้าหน้าที่อย่างเดียว**
+        </p>
+      </div>
+    </div>
+
+    <footer>
+    <h3>ช่องทางติดต่อ เปลี่ยนโรล</h3>
+    <a href="https://www.facebook.com/share/18ZFdRzGxn/"><img src="/img/facebook.png" alt="Facebook"></a>
+  </footer>
+  <script>
+    const toggleBtn = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+toggleBtn.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+  </script>
+</body>
+
+</html>

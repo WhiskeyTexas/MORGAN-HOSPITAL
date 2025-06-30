@@ -1,0 +1,118 @@
+/* รีเซ็ตเบื้องต้น */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url('/img/พื้นหลังLV.png') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: black;
+  color: pink;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  z-index: 10;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-menu ul li {
+  padding: 10px 20px;
+  border-bottom: 1px solid #555;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: pink;
+  font-size: 16px;
+}
+
+.menu-toggle {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* แสดงเมนูเมื่อมีคลาส show */
+.nav-menu.show {
+  display: block;
+}
+
+/* สไตล์เมนูในหน้าจอใหญ่: ยังใช้แบบเปิด-ปิด ไม่โชว์ตลอด */
+@media screen and (min-width: 769px) {
+  .nav-menu ul {
+    flex-direction: column;
+    /* ถ้าอยากให้เรียงแนวนอน เปลี่ยนเป็น row */
+  }
+
+  .nav-menu {
+    width: 250px;
+    right: 20px;
+    left: auto;
+  }
+}
+
+/*  */
+/*  */
+
+.container {
+  background-color: aliceblue;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+  border-radius: 15px; /* มุมโค้งมน */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* เงาด้านนอก */
+  border: 1px solid #cce0ff; 
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  border: 1px solid #ccc; /* เส้นขอบรอบตาราง */
+  border-radius: 10px; /* มุมโค้งของตาราง */
+  overflow: hidden; /* ซ่อนขอบเกิน */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* เงาเบาๆ */
+}
+
+table th, table td {
+  padding: 12px 15px;
+  vertical-align: top;
+  border-bottom: 1px solid #ddd; /* เส้นแบ่งระหว่างแถว */
+}
+
+table th {
+  font-weight: bold;
+  white-space: nowrap;
+  background-color: rgba(255, 192, 203, 0.4);
+  color: black;
+}

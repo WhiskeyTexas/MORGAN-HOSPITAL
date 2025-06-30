@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สมัครหมอ</title>
+  <link rel="icon" href="/img/โลโก้ หน่วยงาน.png" type="image/x-icon">
+  <style>
+    /* 🔹 รีเซ็ตเบื้องต้น */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      background-color: #f5faff;
+    }
+
+    /* 🔹 แถบเมนูด้านบน */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: black;
+      color: goldenrod;
+      padding: 15px 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: goldenrod;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .navbar ul li a:hover,
+    .navbar ul li a.active {
+      background-color: white;
+    }
+
+    /* 🔹 เมนู 3 ขีด สำหรับมือถือ */
+    .hamburger {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    /* 🔹 ส่วนเนื้อหาสมัครหมอ */
+    .doctor-register {
+      padding: 40px 20px;
+      min-height: 80vh;
+    }
+
+    .register-content {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .register-content h1 {
+      color: goldenrod;
+      margin-bottom: 20px;
+    }
+
+    .register-content p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .contact-box {
+      background: #e6f2ff;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .contact-box a {
+      color: #004a99;
+      text-decoration: none;
+    }
+
+    .contact-box a:hover {
+      text-decoration: underline;
+    }
+
+    /* 🔹 ปรับแต่งสำหรับมือถือ */
+    @media (max-width: 768px) {
+      .navbar ul {
+        display: none;
+        flex-direction: column;
+        background-color: gainsboro;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        border-radius: 8px;
+        padding: 10px 0;
+      }
+
+      .navbar.active ul {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    /* 🔹 ขนาดเล็กลงและปรับให้สวย */
+    .slider-container {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      /* ขนาดเล็กลงจาก 940 */
+      margin: 30px auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .slider-wrapper {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      user-select: none;
+    }
+
+    .slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    /* ปุ่มถัดไป / ก่อนหน้า */
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 12px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 10;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    /* จุดสถานะ */
+    .dots {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #ccc;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background-color: #333;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🔹 ส่วนแถบเมนู (Header / Navbar) -->
+  <header class="top-bar">
+    <div class="logo">🏥 สมัครหมอ LV & LS</div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="หน้าหลัก.html">กลับไปหน้าหลัก</a></li>
+      </ul>
+      <div class="hamburger">&#9776;</div>
+      <!-- เมนู 3 ขีด -->
+    </nav>
+  </header>
+
+  <!-- 🔹 ส่วนเนื้อหา (Main Content) -->
+  <main class="doctor-register">
+    <section class="register-content">
+      <h1>สมัครเป็นหมอกับเรา</h1>
+      <p>
+        หากคุณมีเลเวล 3 แล้วสนใจร่วมงานกับเรา กรุณาติดต่อผ่านช่องทางต่อไปนี้:
+      </p>
+
+      <div class="contact-box">
+        <p>
+          <strong>Facebook</strong>
+          <a href="https://www.facebook.com/share/15kaHQu8eu/" target="_blank">ต่อสกุล หลงรัก</a>
+        </p>
+        <p>
+          <strong>Facebook:</strong>
+          <a href="https://www.facebook.com/share/1Be3KDpFQ8/" target="_blank">Whis Key</a>
+        </p>
+        <p><strong>🕐 เวลาทำการ:</strong> จันทร์–อาทิตย์ 24 ชม.</p>
+      </div>
+
+      <p>เรายินดีต้อนรับคุณเข้าสู่หน่วยงานแพทย์ของเรา ❤️</p>
+    </section>
+
+    <div class="slider-container" id="slider">
+      <div class="slider-wrapper">
+        <div class="slide"><img src="/img/รับยัดหมอ LV.png" alt="โปร 1"></div>
+        <div class="slide"><img src="/img/รับยัดหมอ LS.png" alt="โปร 2"></div>
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+      <div class="dots">
+        <span class="dot" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+      </div>
+    </div>
+  </main>
+
+  <!-- js -->
+  <script>
+    // 🔹 สั่งให้เมนู 3 ขีด แสดง / ซ่อน เมนู
+    const hamburger = document.querySelector('.hamburger');
+    const navbar = document.querySelector('.navbar');
+
+    hamburger.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+    });
+
+    // 
+    // 
+
+    const wrapper = document.querySelector('.slider-wrapper');
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    let index = 0;
+    let interval;
+
+    function showSlide(i) {
+      if (i >= slides.length) index = 0;
+      else if (i < 0) index = slides.length - 1;
+      else index = i;
+
+      wrapper.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+    }
+
+    function nextSlide() { showSlide(index + 1); }
+    function prevSlide() { showSlide(index - 1); }
+
+    document.querySelector('.next').onclick = nextSlide;
+    document.querySelector('.prev').onclick = prevSlide;
+    dots.forEach(dot => {
+      dot.onclick = () => showSlide(parseInt(dot.dataset.index));
+    });
+
+    // 🔁 เลื่อนอัตโนมัติ
+    function startAutoSlide() {
+      interval = setInterval(nextSlide, 5000);
+    }
+    function stopAutoSlide() {
+      clearInterval(interval);
+    }
+
+    // หยุดเลื่อนเมื่อวางเมาส์
+    const slider = document.getElementById('slider');
+    slider.addEventListener('mouseenter', stopAutoSlide);
+    slider.addEventListener('mouseleave', startAutoSlide);
+
+    // เริ่มเลื่อนทันที
+    showSlide(0);
+    startAutoSlide();
+
+  </script>
+</body>
+
+</html>

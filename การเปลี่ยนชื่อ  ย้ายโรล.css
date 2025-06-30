@@ -1,0 +1,136 @@
+/* รีเซ็ตเบื้องต้น */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url('/img/พื้นหลังLV.png') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Kanit', 'Inter', sans-serif;
+}
+
+header {
+  background-color: black;
+  color: pink;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  z-index: 10;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-menu ul li {
+  padding: 10px 20px;
+  border-bottom: 1px solid #555;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: pink;
+  font-size: 16px;
+}
+
+.menu-toggle {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* แสดงเมนูเมื่อมีคลาส show */
+.nav-menu.show {
+  display: block;
+}
+
+/* สไตล์เมนูในหน้าจอใหญ่: ยังใช้แบบเปิด-ปิด ไม่โชว์ตลอด */
+@media screen and (min-width: 769px) {
+  .nav-menu ul {
+    flex-direction: column;
+    /* ถ้าอยากให้เรียงแนวนอน เปลี่ยนเป็น row */
+  }
+
+  .nav-menu {
+    width: 250px;
+    right: 20px;
+    left: auto;
+  }
+}
+
+/*  */
+/*  */
+
+.container {
+        max-width: 800px;
+        margin: auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h1,
+      h2 {
+        color: #1e3a8a;
+      }
+
+      .section {
+        margin-bottom: 30px;
+      }
+
+      .note {
+        color: red;
+        font-weight: bold;
+      }
+
+      .mockup {
+        background: #f1f5f9;
+        padding: 15px;
+        border-left: 4px solid pink;
+        border-radius: 8px;
+        font-family: monospace;
+        font-size: 18px;
+        font-family: 'Kanit', 'Inter', sans-serif;
+      }
+
+      .example {
+        font-family: 'Kanit', 'Inter', sans-serif;
+        font-size: 18px;
+        background: #e2e8f0;
+        padding: 15px;
+        border-left: 4px solid red;
+        border-radius: 8px;
+      }
+
+      /*  */
+
+      footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}

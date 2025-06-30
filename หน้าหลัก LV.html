@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOSPITAL LV</title>
+  <link rel="icon" href="/img/โลโก้ LV.png" type="image/x-icon">
+  <style>
+    /* รีเซ็ตเบื้องต้น */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url('/img/พื้นหลังLV.png') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: black;
+  color: pink;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  z-index: 10;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-menu ul li {
+  padding: 10px 20px;
+  border-bottom: 1px solid #555;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: pink;
+  font-size: 16px;
+}
+
+.menu-toggle {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* แสดงเมนูเมื่อมีคลาส show */
+.nav-menu.show {
+  display: block;
+}
+
+/* สไตล์เมนูในหน้าจอใหญ่: ยังใช้แบบเปิด-ปิด ไม่โชว์ตลอด */
+@media screen and (min-width: 769px) {
+  .nav-menu ul {
+    flex-direction: column;
+    /* ถ้าอยากให้เรียงแนวนอน เปลี่ยนเป็น row */
+  }
+
+  .nav-menu {
+    width: 250px;
+    right: 20px;
+    left: auto;
+  }
+}
+
+/*  */
+/*  */
+.welcome {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--secondary);
+  /* background-color: rgba(45, 43, 43, 0.177); */
+  color: pink;
+}
+
+.welcome h1 {
+  font-size: 32px;
+  color: var(--primary);
+}
+
+/* 🔹 ขนาดเล็กลงและปรับให้สวย */
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  /* ขนาดเล็กลงจาก 940 */
+  margin: 30px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  user-select: none;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* ปุ่มถัดไป / ก่อนหน้า */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* จุดสถานะ */
+.dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #333;
+}
+
+.controls button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 10px 5px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 18px;
+}
+
+.menu-links {
+  padding: 50px 20px;
+  text-align: center;
+  border-radius: 16px;
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.menu-links h2 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.menu-grid {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.menu-btn {
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+  color: white;
+  padding: 18px 36px;
+  border-radius: 30px;
+  box-shadow: 0 6px 12px rgba(255, 105, 180, 0.3);
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  transition: 
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+.menu-btn i {
+  font-size: 22px;
+}
+
+/* Hover effect */
+.menu-btn:hover {
+  background: linear-gradient(135deg, #ff1493, #ff69b4);
+  box-shadow: 0 10px 20px rgba(255, 20, 147, 0.6);
+  transform: translateY(-4px) scale(1.05);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* กดปุ่ม active effect */
+.menu-btn:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 4px 8px rgba(255, 20, 147, 0.5);
+}
+
+/* Responsive: ปรับขนาดปุ่มบนมือถือ */
+@media screen and (max-width: 480px) {
+  .menu-grid {
+    gap: 15px;
+  }
+  .menu-btn {
+    font-size: 16px;
+    padding: 14px 28px;
+  }
+  .menu-btn i {
+    font-size: 18px;
+  }
+}
+
+.contact-us {
+  padding: 40px 20px;
+  /* background: rgba(0, 0, 0, 0.29); */
+  text-align: center;
+  color: pink;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.contact-btn {
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.contact-btn.facebook {
+  background: rgb(174, 87, 237);
+}
+
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+.news-slider{
+  /* background-color: rgba(34, 32, 32, 0.512); */
+  color: pink;
+  display: flex;             /* เปิด Flexbox */
+  justify-content: center;   /* กึ่งกลางแนวนอน */
+  align-items: center;       /* กึ่งกลางแนวตั้ง */
+  flex-direction: column;    /* ถ้ามีหลายบรรทัดข้อความให้เรียงลง */
+  text-align: center;        /* จัดข้อความในแต่ละบรรทัดให้อยู่กลาง */
+  padding: 60px 20px;
+  min-height: 200px
+}
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">HOSPITAL LV</div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <nav class="nav-menu" id="nav-menu">
+      <ul>
+        <li><a href="#">เรื่องควรรู้</a></li>
+        <li><a href="คู่มือหมอใหม่.html">คู่มือหมอใหม่</a></li>
+        <li><a href="กฎ และ ข้อบังคับ.html">กฏ และ ข้อบังคับ</a></li>
+        <li><a href="วิธีเช็คใบ ล้างใบ.html">วิธีเช็คใบ ล้างใบ</a></li>
+        <li><a href="อัตราค่าปรับ.html">อัตราค้าปรับ</a></li>
+        <li><a href="การเลื่อน ยศ.html">การเลื่อน ยศ</a></li>
+        <li><a href="การจ่ายส่วย.html">การจ่ายส่วย</a></li>
+        <li><a href="การเปลี่ยนชื่อ  ย้ายโรล.html">การเปลี่ยนชื่อ / ย้ายโรล</a></li>
+        <li><a href="การย้ายโรงพยาบาล.html">การย้ายโรงพยาบาล</a></li>
+        <li><a href="แจ้งลางาน.html">แจ้งลางาน</a></li>
+        <li><a href="แจ้งลาออก.html">แจ้งลาออก</a></li>
+        <li><a href="รายชื่อคณะบริหาร.html">รายชื่อคณะบริหาร</a></li>
+        <li><a href="หน้าหลัก.html">กลับไปหน้าหลัก</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ต้อนรับ -->
+  <section class="welcome">
+    <h1>ยินดีต้อนรับสู่ Hospital LV</h1>
+    <p>โรงพยาบาลของคนหน้าตาดี</p>
+  </section>
+
+  <!-- ข่าวสารแบบสไลด์ -->
+  <section class="news-slider">
+    <h2>ข่าวสาร</h2>
+    <div class="slider-container" id="slider">
+      <div class="slider-wrapper">
+        <div class="slide"><img src="/img/รับยัดหมอ LV.png" alt="โปร 1"></div>
+        <div class="slide"><img src="" alt="โปร 2"></div>
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+      <div class="dots">
+        <span class="dot" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ช่องทางหลัก -->
+  <section class="contact-us">
+    <h2>Discord</h2>
+    <p>ㅤ</p>
+    <div style="text-align: center;">
+        <a href="https://discord.gg/VGkPJgpfRe"><img
+            src="/img/discord_icon.png" width="100px" alt="อัตราค่าปรับ"></a>
+      </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MORGAN HOSPITAL. All rights reserved.</p>
+  </footer>
+
+  <!-- js -->
+  <script>
+  const toggleBtn = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+toggleBtn.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+
+// 
+// 
+const wrapper = document.querySelector('.slider-wrapper');
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+let index = 0;
+let interval;
+
+function showSlide(i) {
+  if (i >= slides.length) index = 0;
+  else if (i < 0) index = slides.length - 1;
+  else index = i;
+
+  wrapper.style.transform = `translateX(-${index * 100}%)`;
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[index].classList.add('active');
+}
+
+function nextSlide() { showSlide(index + 1); }
+function prevSlide() { showSlide(index - 1); }
+
+document.querySelector('.next').onclick = nextSlide;
+document.querySelector('.prev').onclick = prevSlide;
+dots.forEach(dot => {
+  dot.onclick = () => showSlide(parseInt(dot.dataset.index));
+});
+
+// 🔁 เลื่อนอัตโนมัติ
+function startAutoSlide() {
+  interval = setInterval(nextSlide, 5000);
+}
+function stopAutoSlide() {
+  clearInterval(interval);
+}
+
+// หยุดเลื่อนเมื่อวางเมาส์
+const slider = document.getElementById('slider');
+slider.addEventListener('mouseenter', stopAutoSlide);
+slider.addEventListener('mouseleave', startAutoSlide);
+
+// เริ่มเลื่อนทันที
+showSlide(0);
+startAutoSlide();
+</script>
+</body>
+
+</html>

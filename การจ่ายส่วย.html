@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>การจ่ายส่วย</title>
+  <link rel="icon" href="/img/โลโก้ LV.png" type="image/x-icon">
+  <link rel="stylesheet" href="การจ่ายส่วย.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">HOSPITAL LV</div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <nav class="nav-menu" id="nav-menu">
+      <ul>
+        <li><a href="หน้าหลัก LV.html">กลับไปหน้า LV</a></li>
+        <li><a href="หน้าหลัก.html">กลับไปหน้าหลัก</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="message-box">
+      <h2>รายละเอียดการจ่ายส่วย</h2>
+      <p>โรงพยาบาลของเรา จะมีการเก็บส่วย
+        <span style="color: red; font-weight: bold;"> 2 ครั้ง </span> ทุกๆ
+        <span style="color: red; font-weight: bold;"> วันที่ 15 , 30 ของทุกเดือน </span> และ จะเปิดให้แลกแต้ม ทุก
+        <span style="color: rgb(11, 190, 8); font-weight: bold;">วันที่ 14-15 และ 29-1 ของทุกเดือน </span> เช่นกัน
+      </p>
+      <p>ㅤ</p>
+      <!-- <div class="message-box"> -->
+      <h2>จำนวนเงินที่ต้องจ่ายในแต่ละ ยศ</h2>
+      <p style="text-align: center; font-weight:bold;">ยศ <span style="color: red;"> 1 20,000 </span> ic</p>
+      <p style="text-align: center; font-weight:bold;">ยศ <span style="color: red;"> 2 25,000 </span> ic</p>
+      <p style="text-align: center; font-weight:bold;">ยศ <span style="color: red;"> 3 30,000 </span> ic</p>
+      <p style="text-align: center; font-weight:bold;">ยศ <span style="color: red;"> 4 35,000 </span> ic</p>
+      <p style="text-align: center; font-weight:bold;">ยศ <span style="color: red;"> 5 40,000 </span> ic</p>
+      <p>ㅤ</p>
+      <p style="text-align: center; font-weight:bold; color: red;">** หมายเหตุ : หากติดธุระ ติดลาเวร
+        ให้ทำการจ่ายล่วงหน้า หรือ จ่ายหลังจากที่เสร็จธุระ แต่จะต้องแจ้งเจ้าหน้าที่ธุระการ การเงิน ด้วย **
+      </p>
+    </div>
+
+    <div class="message-box">
+      <img src="/img/ส่วย LV.png" alt="">
+    </div>
+  </main>
+
+  <footer>
+    <h3>ช่องทางติดต่อ จนท.ส่วย</h3>
+    <a href="https://www.facebook.com/phi.sxk.wira.chay"><img src="/img/facebook.png"
+        alt="Facebook"></a>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+toggleBtn.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+  </script>
+</body>
+
+</html>

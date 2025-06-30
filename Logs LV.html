@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOSPITAL LV</title>
+  <link rel="icon" href="/img/โลโก้ LV.png" type="image/x-icon">
+  <style>
+    /* รีเซ็ตเบื้องต้น */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url('/img/LV.png') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ส่วนหัว */
+header {
+  background-color: black;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.logo img {
+  height: 50px;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* เมนูหลัก */
+.nav-links ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: pink;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+/* กล่องล็อกอิน */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.login-box {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px 30px;
+  border-radius: 20px;
+  max-width: 350px;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.login-box h2 {
+  margin-bottom: 25px;
+  color: black;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background-color: rgb(40, 226, 15);
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-box button:hover {
+  background-color: rgb(28, 170, 10);
+}
+
+/* Responsive มือถือ */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    padding: 15px 0;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links.active {
+    display: block;
+  }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="/img/โลโก้ LV.png" alt="">
+  </div>
+
+  <!-- ปุ่มขีด 3 ขีด -->
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+
+  <!-- เมนูนำทางที่ซ่อนอยู่ -->
+  <nav class="nav-links" id="nav-links">
+    <ul>
+      <li><a href="สมัครหมอ.html">สมัครหมอ</a></li>
+      <li><a href="#">ร้านค้า</a></li>
+      <li><a href="หน้าหลัก.html">กลับไปหน้าหลัก</a></li>
+    </ul>
+</header>
+
+<main>
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="ชื่อผู้ใช้">
+    <input type="password" id="password" placeholder="รหัสผ่านหน่วยงาน">
+    <button onclick="login()">เข้าสู่ระบบ</button>
+    <p id="message" style="color: red;"></p>
+  </div>
+</main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.getElementById("menu-toggle");
+  const nav = document.getElementById("nav-links");
+
+  toggle.addEventListener("click", function () {
+    nav.classList.toggle("active");
+  });
+});
+
+// 
+// 
+
+const correctPassword = "LV2568";
+const scriptURL = "https://script.google.com/macros/s/AKfycbzAvpY4lpm_7YBbjv93qXIn_VfYr-aIWLRhkZVhY0W_oFLVZzmLcB8v0h1VEIsNFR5feA/exec";
+const secretKey = "HOSPITAL LV 2568";
+
+async function login() {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+  const ip = await fetch("https://api.ipify.org").then(res => res.text());
+  const status = (password === correctPassword) ? "SUCCESS" : "FAIL";
+
+  // ส่งข้อมูลไป Google Sheet
+  fetch(scriptURL, {
+    method: 'POST',
+    body: new URLSearchParams({
+      username,
+      ip,
+      status,
+      key: secretKey
+    })
+  });
+
+  if (status === "SUCCESS") {
+    window.location.href = "หน้าหลัก LV.HTML";
+  } else {
+    document.getElementById("message").innerText = "รหัสผ่านไม่ถูกต้อง";
+  }
+}
+</script>
+
+</body>
+
+</html>

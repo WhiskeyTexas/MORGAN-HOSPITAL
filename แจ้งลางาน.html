@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แจ้งลางาน</title>
+  <link rel="icon" href="/img/โลโก้ LV.png" type="image/x-icon">
+  <link rel="stylesheet" href="แจ้งลางาน.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">HOSPITAL LV</div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <nav class="nav-menu" id="nav-menu">
+      <ul>
+        <li><a href="หน้าหลัก LV.html">กลับไปหน้า LV</a></li>
+        <li><a href="หน้าหลัก.html">กลับไปหน้าหลัก</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1 style="color: pink;">ระบบแจ้งลางาน HOSPITAL LV</h1>
+    <h3 class="messenger">เลือกแจ้งผ่านเว็บไซต์ หรือ Discord อย่างใดอย่างหนึ่ง</h3>
+  </main>
+
+  <main>
+    <!-- ระบบ 1 -->
+    <section>
+      <h2>📌 ลางานผ่านเว็บไซต์ (ทดลองใช้)</h2>
+      <form id="leaveForm">
+        <label>ชื่อในเกม</label>
+        <input type="text" name="name" required />
+
+        <label>วันที่ลา</label>
+        <input type="date" name="start" required />
+
+        <label>วันที่สิ้นสุด</label>
+        <input type="date" name="end" required />
+
+        <label>จำนวนวัน</label>
+        <input type="number" name="days" required />
+
+        <label>สาเหตุ</label>
+        <textarea name="reason" required></textarea>
+
+        <button type="submit">ส่งคำขอ</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>❌ ยกเลิกการลา</h2>
+      <form id="cancelForm">
+        <label>ชื่อในเกม (ต้องตรงกับที่แจ้งไว้)</label>
+        <input type="text" id="cancel-name" name="cancel-name" required />
+        <button type="submit">ยกเลิกการลา</button>
+      </form>
+    </section>
+
+    <!-- ระบบ 2 -->
+    <section>
+      <h2>📝 ลางานผ่าน Discord</h2>
+      <div class="box">
+        <h3>รายละเอียดการลาเวร</h3>
+        <p>
+          สามารถแจ้งลาเวรลง Discord ได้เลย ในแต่ละวันสามารถลาได้ตั้งแต่เวลา
+          00:00 น. - 22:00 น. หลังจากปิดลาแล้วจะไม่เช็คให้
+        </p>
+        <p class="messenger">
+          หมายเหตุ : หากหมอท่านใดที่ลาเวรแล้ว แล้วพบเจอในเกม จะนับการลาเป็น
+          โมฆะ ทันที
+        </p>
+        <p>ㅤ</p>
+        <img src="/img/ลางาน LV.png" alt="">
+      </div>
+      <div class="box">
+        <h3>วิธีแจ้งลางาน/เวร</h3>
+        <h4>การลา 1 วัน</h4>
+        <p>ชื่อ :</p>
+        <p>วันที่ :</p>
+        <p>สาเหตุ :</p>
+        <p>ㅤ</p>
+        <h4 class="messenger">ตัวอย่างการลา 1 วัน</h4>
+        <p>ชื่อ : Whiskey_Texas</p>
+        <p>วันที่ : 18/05/68</p>
+        <p>สาเหตุ : พักผ่อน</p>
+        <p>ㅤ</p>
+        <h4>การลามากกว่า 1 วัน</h4>
+        <p>ชื่อ :</p>
+        <p>วันที่ :</p>
+        <p>สาเหตุ :</p>
+        <p>ㅤ</p>
+        <h4 class="messenger">ตัวอย่างการลามากกว่า 1 วัน</h4>
+        <p>ชื่อ : Whiskey_Texas</p>
+        <p>วันที่ : 18/05/68 - 20/05/68</p>
+        <p>สาเหตุ : พักผ่อน</p>
+      </div>
+
+      <div class="box">
+        <h3>ตัวอย่างการยกเลิกลา</h3>
+        <h4>(พิมพ์ตอบกลับข้อความที่ลา)</h4>
+        <p>ชื่อ : Whiskey_Texas</p>
+        <p>วันที่ : 19/05/68</p>
+        <p>[ แท็กเจ้าหน้าที่ @!Lincia_Beretta [C6] ]</p>
+      </div>
+    </section>
+
+    <!-- หมายเหตุ -->
+    <section>
+      <h2>⚠️ หมายเหตุสำคัญ</h2>
+      <ul>
+        <li>
+          ถ้าหากต้องการลาตั้งแต่ 5
+          วันขึ้นไปให้ทักส่วนตัวกับเจ้าหน้าที่เช็คลาเท่านั้น และ
+          รออนุมัติจึงสามารถแจ้งลงดิสได้
+        </li>
+        <li>
+          ติดต่อเจ้าหน้าที่ได้ที่ FB: Virakan Khem ( งดทัก Discord นะคะ)
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <h3>ช่องทางติดต่อ จนท.เช็คลา</h3>
+    <a href="https://www.facebook.com/virakan.khem"><img src="/img/facebook.png" alt="Facebook"></a>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+toggleBtn.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+
+// 
+// 
+
+const scriptURL =
+  "https://script.google.com/macros/s/AKfycbzlHwwWogf2wdZ1IOjmUUpSDH0LLXvSQ5qARxTJ42sJnUt34nuExzzEZe2VJ91OaffTvg/exec";
+
+// ✅ ส่งคำขอลางาน
+document
+  .getElementById("leaveForm")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const form = new FormData(this);
+    const submitButton = this.querySelector("button");
+    submitButton.disabled = true;
+    submitButton.textContent = "กำลังส่งคำขอ...";
+
+    setTimeout(() => {
+      fetch(scriptURL, { method: "POST", body: form })
+        .then((response) => {
+          alert("✅ ส่งคำขอลางานเรียบร้อยแล้ว");
+          this.reset();
+        })
+        .catch((error) => {
+          alert("❌ เกิดข้อผิดพลาดในการส่งคำขอ");
+          console.error(error);
+        })
+        .finally(() => {
+          submitButton.disabled = false;
+          submitButton.textContent = "ส่งคำขอ";
+        });
+    }, 1500);
+  });
+
+// ✅ ส่งคำขอยกเลิกการลา
+document
+  .getElementById("cancelForm")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nameToCancel = document.getElementById("cancel-name").value;
+    const submitButton = this.querySelector("button");
+    submitButton.disabled = true;
+    submitButton.textContent = "กำลังยกเลิก...";
+
+    setTimeout(() => {
+      fetch(
+        `${scriptURL}?action=cancel&name=${encodeURIComponent(
+          nameToCancel
+        )}`
+      )
+        .then((res) => res.text())
+        .then((result) => {
+          alert("📌 " + result);
+          this.reset();
+        })
+        .catch((err) => {
+          alert("❌ เกิดข้อผิดพลาดในการยกเลิก");
+          console.error(err);
+        })
+        .finally(() => {
+          submitButton.disabled = false;
+          submitButton.textContent = "ยกเลิกการลา";
+        });
+    }, 1500);
+  });
+  </script>
+</body>
+
+</html>
